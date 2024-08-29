@@ -51,6 +51,16 @@ const CreateThread: React.FC = () => {
           {errors.content && <p className="text-red-500 text-xs italic">{errors.content.message}</p>}
         </div>
 
+        <div className="mb-4">
+                <Label htmlFor="Content" className="block mt-4 text-sm text-slate-400">Innehåll*</Label>
+                <textarea
+                  className="mt-2 mb-4 bg-transparent rounded-lg w-full h-32 p-2 border border-white"
+                  id="content"
+                  placeholder="Skriv ditt innehåll här"
+                />
+                {errors.content && <p className="text-red-500 text-xs italic">{errors.content.message}</p>}
+              </div>
+
         <div className="flex items-center justify-between">
         <Button type="submit" className="w-full mt-6 bg-indigo-700 rounded-full hover:bg-indigo-700">Skapa ny tråd</Button>
         </div>
