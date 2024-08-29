@@ -12,6 +12,7 @@ type Thread = {
   creationDate: string;
   description: string;
   creator: User;
+  comments: Comment[]; 
 }
 
 type QNAThread = Thread & {
