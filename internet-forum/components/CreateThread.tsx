@@ -4,44 +4,34 @@ import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 
-
-
-// type Thread = {
-//   id: string;
-//   title: string;
-//   content: string;
-//   timestamp: string;
-// };
-
-
 const CreateThread = () => {
-  const [title, setTitle,] = useState('');
-  const [content, setContent] = useState('');
-  const [category, setCategory] = useState('');
-  
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
+  const [category, setCategory] = useState<ThreadCategory>('Thread'); // Default category
+  const [creator, setCreator] = useState<User>({ userName: 'defaultUser', password: 'defaultPassword' }); // Default user
+
+
   const router = useRouter();
 
   const handleCreateThread = () => {
     const newThread: Thread = {
-      id: Math.random().toString(),
-      title: title,
-      content: content,
-      category: ThreadCategory,
+      id: Math.floor(Math.random() * 10000), // Generate a random ID
+      title,
+      category,
       creationDate: new Date().toISOString(),
-      creator: User, // Assuming a default value for creator
-      timestamp: new Date().toISOString(),
+      description,
+      creator,
     };
-    
+
     const savedThreads = localStorage.getItem('threads');
     const threads = savedThreads ? JSON.parse(savedThreads) : [];
     threads.push(newThread);
     localStorage.setItem('threads', JSON.stringify(threads));
 
-    
-  console.log('Saved threads:', threads);
+    console.log('Saved threads:', threads);
 
     // Navigate to /threads page
-    router.push('/threads');
+    // router.push('/threads');
   };
 
 
@@ -69,14 +59,15 @@ const CreateThread = () => {
 
               <div className="mb-4">
                 <label htmlFor="kategori" className="block mt-4 text-sm text-slate-400">Kategori*</label>
-                <input
+                <select
                   className="mt-2 mb-4 bg-transparent rounded-full border p-2"
-                  type="text"
                   id="kategori"
-                  placeholder="Kategori"
                   value={category}
-                  onChange={(e) => setCategory(e.target.value)}
-                />
+                  onChange={(e) => setCategory(e.target.value as ThreadCategory)} // Type casting here
+                >
+                  <option className="bg-black" value="Thread">Thread</option>
+                  <option className="bg-black" value="QNA">QNA</option>
+                </select>
               </div>
 
               <div className="mb-4">
@@ -85,8 +76,8 @@ const CreateThread = () => {
                   className="mt-2 mb-4 bg-transparent rounded-lg w-full h-32 border p-2"
                   id="content"
                   placeholder="Skriv ditt innehåll här"
-                  value={content}
-                  onChange={(e) => setContent(e.target.value)}
+                  value={description}
+                  onChange={(e) => setDescription(e.target.value)}
                 />
               </div>
 
