@@ -12,12 +12,8 @@ type Thread = {
   category: ThreadCategory;
   creationDate: string;
   creator: User;
-<<<<<<< HEAD
   comments: Comment[]; 
-=======
   timestamp: string;
-  
->>>>>>> Albert
 }
 
 type QNAThread = Thread & {
