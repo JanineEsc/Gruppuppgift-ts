@@ -6,13 +6,18 @@ type User = {
 }
 
 type Thread = {
-  id: number;
+  id: string;
   title: string;
+  content: string;
   category: ThreadCategory;
   creationDate: string;
-  description: string;
   creator: User;
+<<<<<<< HEAD
   comments: Comment[]; 
+=======
+  timestamp: string;
+  
+>>>>>>> Albert
 }
 
 type QNAThread = Thread & {
