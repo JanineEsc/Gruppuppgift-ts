@@ -13,7 +13,11 @@ const Navbar = () => {
         <Link href="/threads" >
           Threads
         </Link>
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> 43bc51374a78076ad5ce1b5938e0a32d1486b6ca
       </ul>
     </nav>
   )
