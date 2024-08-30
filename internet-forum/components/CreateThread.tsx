@@ -31,37 +31,37 @@ const CreateThread = () => {
     console.log('Saved threads:', threads);
 
     // Navigate to /threads page
-    // router.push('/threads');
+    router.push('/');
   };
 
 
 
   return (
-    <main className="bg-[#26313c] h-screen flex items-center justify-center p-10">
-      <div className="w-full h-full grid-cols-1 bg-blue md:grid-cols-2">
-        <div className="bg-[#16202a] h-full text-white flex items-center justify-center flex-col">
-          <div className="my-4"></div>
+    <main className="bg-emerald-400 border-2  flex items-center justify-center p-10">
+      <div className="w-[800px] h-full grid-cols-1 bg-blue md:grid-cols-2">
+        <div className="bg-emerald-400 h-full text-white pt-5 items-center justify-center ">
+          <div className=""></div>
 
-          <div className="max-w-lg mx-auto mt-10 p-6 rounded shadow-md">
-            <h1 className="text-2xl font-bold mb-4">Skapa en ny tråd</h1>
+          <div className=" mx-auto w-full p-6 rounded ">
+            <h1 className="text-2xl font-bold mb-4">Create new thread:</h1>
             <form onSubmit={(e) => { e.preventDefault(); handleCreateThread(); }}>
               <div className="mb-4">
-                <label htmlFor="rubrik" className="block mt-4 text-sm text-slate-400">Namn på tråd*</label>
+                <label htmlFor="title" className="block mt-4 text-lg text-white">Title:</label>
                 <input
-                  className="mt-2 mb-4 bg-transparent rounded-full border p-2"
+                  className="mt-2 mb-4 bg-transparent rounded-full border p-2 w-full"
                   type="text"
-                  id="rubrik"
-                  placeholder="Namn på tråd"
+                  id="title"
+                  placeholder="Thread name"
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
                 />
               </div>
 
               <div className="mb-4">
-                <label htmlFor="kategori" className="block mt-4 text-sm text-slate-400">Kategori*</label>
+                <label htmlFor="Category" className="block mt-4 text-lg text-white">Category:</label>
                 <select
                   className="mt-2 mb-4 bg-transparent rounded-full border p-2"
-                  id="kategori"
+                  id="Category"
                   value={category}
                   onChange={(e) => setCategory(e.target.value as ThreadCategory)} // Type casting here
                 >
@@ -71,19 +71,19 @@ const CreateThread = () => {
               </div>
 
               <div className="mb-4">
-                <label htmlFor="content" className="block mt-4 text-sm text-slate-400">Innehåll*</label>
+                <label htmlFor="content" className="block mt-4 text-lg text-white">Content:</label>
                 <textarea
                   className="mt-2 mb-4 bg-transparent rounded-lg w-full h-32 border p-2"
                   id="content"
-                  placeholder="Skriv ditt innehåll här"
+                  placeholder="Write your content here"
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
                 />
               </div>
 
               <div className="flex items-center justify-between">
-                <button type="submit" className="w-full mt-6 bg-indigo-700 rounded-full hover:bg-indigo-700">Skapa ny tråd</button>
-              </div>
+                <button type="submit" className="w-full mt-6 text-white border-2 h-12 rounded-full hover:text-emerald-400 hover:bg-white">Create new thread</button>
+              </div> 
             </form>
           </div>
         </div>

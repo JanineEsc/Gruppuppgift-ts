@@ -1,3 +1,5 @@
+
+import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 
 type Thread = {
@@ -29,22 +31,19 @@ function ListThreads() {
   };
 
   return (
-    <main className="bg-[#26313c] h-screen flex items-center justify-center p-10">
-      <div className="w-full h-full grid-cols-1 bg-blue md:grid-cols-2">
-        <div className="bg-[#16202a] h-full text-white flex items-center justify-center flex-col">
-          <div className="my-4">
-            <div className="max-w-lg mx-auto mt-10 p-6 rounded shadow-md">
-              <h1 className="text-2xl font-bold mb-4">Lista av trådar</h1>
+<main className="border-2 flex items-center justify-center p-10">
+      <div className="">
+        <div className="  text-white flex items-center justify-center flex-col">
               {error ? (
                 <p className="text-red-500 text-xs italic">{error}</p>
               ) : (
                 threads.map(thread => (
-                  <div key={thread.id} className="w-96 mb-4 p-4 border border-white rounded-lg">
-                    <h2 className="text-xl font-bold">{thread.title}</h2>
+                  <div key={thread.id} className="flex justify-between items-center mb-4 p-4 border border-white w-[800px]">
+                    <Link href={`/threads/${thread.id}`}>{thread.title}</Link>
                     <p className="text-sm text-slate-400">{new Date(thread.timestamp).toLocaleString()}</p>
                     <p className="mt-2 text-sm">{thread.content}</p>
                     <button
-                      className="mt-2 bg-red-500 text-white px-4 py-2 rounded"
+                      className="mt-2 bg-red-500 text-white px-4  "
                       onClick={() => deleteThread(thread.id)}
                     >
                       Delete
@@ -52,8 +51,6 @@ function ListThreads() {
                   </div>
                 ))
               )}
-            </div>
-          </div>
         </div>
       </div>
     </main>
