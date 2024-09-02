@@ -21,6 +21,7 @@ const CreateThread = () => {
       creationDate: new Date().toISOString(),
       description,
       creator,
+      comments: []
     };
 
     const savedThreads = localStorage.getItem('threads');

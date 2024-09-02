@@ -5,13 +5,14 @@ type User = {
   password: string,  
 }
 
-type Thread = {
+type Thread =  {
   id: number;
 	title: string;
 	category: ThreadCategory;
 	creationDate: string;
 	description: string;
 	creator: User;
+  comments: ThreadComment[];
 }
 
 type QNAThread = Thread & {
@@ -20,7 +21,7 @@ type QNAThread = Thread & {
   commentAnswerId?: number;
 }
 
-type Comment = {
+type ThreadComment = {
   id: number;
   thread: number;
   content: string;
