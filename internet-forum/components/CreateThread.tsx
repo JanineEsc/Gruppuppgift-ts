@@ -7,7 +7,7 @@ import { useRouter } from 'next/navigation';
 const CreateThread = () => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
-  const [category, setCategory] = useState<ThreadCategory>('Thread'); // Default category
+  const [category, setCategory] = useState<ThreadCategory>('Thread'); 
   const [creator, setCreator] = useState<User>({ userName: 'defaultUser', password: 'defaultPassword' }); // Default user
 
 
@@ -15,7 +15,7 @@ const CreateThread = () => {
 
   const handleCreateThread = () => {
     const newThread: Thread = {
-      id: Math.floor(Math.random() * 10000), // Generate a random ID
+      id: Math.floor(Math.random() * 10000), 
       title,
       category,
       creationDate: new Date().toISOString(),
@@ -31,25 +31,25 @@ const CreateThread = () => {
 
     console.log('Saved threads:', threads);
 
-    // Navigate to /threads page
+    
     router.push('/');
   };
 
 
 
   return (
-    <main className="bg-emerald-400 border-2  flex items-center justify-center p-10">
-      <div className="w-[800px] h-full grid-cols-1 bg-blue md:grid-cols-2">
-        <div className="bg-emerald-400 h-full text-white pt-5 items-center justify-center ">
+    <main className="bg-teal-400 border-2  flex items-center justify-center p-10 shadow-xl">
+      <div className="w-[800px] h-full grid-cols-1 bg-blue md:grid-cols-2 ">
+        <div className="bg-teal-400 h-full text-white pt-5 items-center justify-center ">
           <div className=""></div>
 
           <div className=" mx-auto w-full p-6 rounded ">
             <h1 className="text-2xl font-bold mb-4">Create new thread:</h1>
             <form onSubmit={(e) => { e.preventDefault(); handleCreateThread(); }}>
               <div className="mb-4">
-                <label htmlFor="title" className="block mt-4 text-lg text-white">Title:</label>
+                <label htmlFor="title" className="block mt-4 text-lg text-white ">Title:</label>
                 <input
-                  className="mt-2 mb-4 bg-transparent rounded-full border p-2 w-full"
+                  className="mt-2 mb-4 bg-transparent rounded-full border p-2 w-full "
                   type="text"
                   id="title"
                   placeholder="Thread name"
@@ -66,8 +66,8 @@ const CreateThread = () => {
                   value={category}
                   onChange={(e) => setCategory(e.target.value as ThreadCategory)} // Type casting here
                 >
-                  <option className="bg-black" value="Thread">Thread</option>
-                  <option className="bg-black" value="QNA">QNA</option>
+                  <option className="bg-gray-500" value="Thread">Thread</option>
+                  <option className="bg-gray-500" value="QNA">QNA</option>
                 </select>
               </div>
 

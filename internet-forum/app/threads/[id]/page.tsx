@@ -65,15 +65,15 @@ const ThreadDetail = () => {
   }
 
   return (
-    <body className="bg-slate-200 h-screen font-serif">
+    <body className="bg-teal-400 h-screen font-serif">
       <Navbar/>
-        <main className="border-2 flex items-center justify-center p-10">
+        <main className=" flex items-center justify-center p-10">
           <div className=" grid-cols-1 bg-blue md:grid-cols-2">
             <div className="flex items-center justify-center flex-col">
-              <div className="w-[700px] bg-teal-500  shadow-xl border-opacity-50 mt-3 p-9 rounded">
+              <div className="w-[700px] border-2  shadow-xl border-opacity-50 mt-3 p-9 rounded">
                 <h1 className="font-bold text-center mt-7 text-5xl text-white">{thread.title}</h1>
                 <p className="font-bold text-start text-2xl mt-10 py-3 text-white">{thread.description}</p>
-                <p className="text-sm m-2 text-right text-red-600">{new Date(thread.creationDate).toLocaleString()}</p>
+                <p className="text-sm m-2 text-right text-gray-500 font-bold">{new Date(thread.creationDate).toLocaleString()}</p>
                 <hr className="mt-4"/>
                 <div className="my-4 p-9">
                   {thread.comments.map(comment => (

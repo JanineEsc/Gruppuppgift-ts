@@ -31,7 +31,7 @@ function ListThreads() {
   };
 
   return (
-<main className="border-2 flex items-center justify-center rounded p-10">
+<main className="border-2 flex items-center justify-center rounded p-10 shadow-xl">
       <div className="">
         <div className="  text-white flex items-center justify-center flex-col">
               {error ? (
