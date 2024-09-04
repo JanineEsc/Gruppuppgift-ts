@@ -8,7 +8,7 @@ const CreateThread = () => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [category, setCategory] = useState<ThreadCategory>('Thread'); 
-  const [creator, setCreator] = useState<User>({ userName: 'defaultUser', password: 'defaultPassword' }); // Default user
+  const [creator, setCreator] = useState<User>({ userName: 'defaultUser', password: 'defaultPassword' }); 
 
 
   const router = useRouter();
@@ -64,7 +64,7 @@ const CreateThread = () => {
                   className="mt-2 mb-4 bg-transparent rounded-full border p-2"
                   id="Category"
                   value={category}
-                  onChange={(e) => setCategory(e.target.value as ThreadCategory)} // Type casting here
+                  onChange={(e) => setCategory(e.target.value as ThreadCategory)}
                 >
                   <option className="bg-gray-500" value="Thread">Thread</option>
                   <option className="bg-gray-500" value="QNA">QNA</option>

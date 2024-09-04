@@ -2,12 +2,6 @@
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 
-// type Thread = {
-//   id: string;
-//   title: string;
-//   content: string;
-//   timestamp: string;
-// };
 
 function ListThreads() {
   const [threads, setThreads] = useState<Thread[]>([]);
